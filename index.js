@@ -114,12 +114,14 @@ export default class Pdf extends Component {
         RNFetchBlob.fs
           .writeFile(cacheFile, data, 'base64')
           // listen to download progress event
+          /*
           .progress((received, total) => {
             //__DEV__ && console.log('progress', received / total);
             this.props.onLoadProgress &&
               this.props.onLoadProgress(received / total)
             this.setState({ progress: received / total })
           })
+          */
           .then(() => {
             //__DEV__ && console.log("write base64 to file:" + cacheFile);
             this.setState({ path: cacheFile, isDownloaded: true })
